@@ -1,0 +1,867 @@
+/* General Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Define a cooler, more vibrant color palette */
+:root {
+    --primary-blue: #007BFF;       /* A strong, modern blue */
+    --accent-cyan: #00BCD4;        /* Bright, cool cyan accent */
+    --highlight-purple: #673AB7;   /* Deep, vibrant purple for pop */
+    --dark-grey-bg: #1A202C;       /* Dark, sleek background */
+    --light-text: #E2E8F0;         /* Light text for dark backgrounds */
+    --medium-text: #A0AEC0;        /* Mid-tone text */
+    --card-dark: #2D3748;          /* Darker card background */
+    --card-light: #4A5568;         /* Lighter card background for contrast */
+    --border-cool: rgba(255, 255, 255, 0.1); /* Subtle, light border */
+    --shadow-deep: rgba(0, 0, 0, 0.4); /* Deeper, more impactful shadows */
+    --shadow-glow: rgba(0, 123, 255, 0.4); /* Blue glow effect */
+    --gradient-main: linear-gradient(135deg, var(--dark-grey-bg) 0%, #2D3748 100%);
+    --gradient-card-highlight: linear-gradient(45deg, var(--accent-cyan), var(--primary-blue));
+    --gradient-button-primary: linear-gradient(45deg, #007BFF, #00BCD4);
+    --gradient-button-danger: linear-gradient(45deg, #FF4500, #FF7043);
+
+    /* Fonts for a sharper, modern feel */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--gradient-main);
+    color: var(--light-text);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* --- Homepage Specific Styles --- */
+.homepage-body {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.homepage-container {
+    background-color: var(--card-dark);
+    border-radius: 12px; /* Sharper corners */
+    box-shadow: 0 15px 45px var(--shadow-deep);
+    width: 95%;
+    max-width: 750px; /* Wider for more presence */
+    padding: 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px; /* Taller */
+    border: 1px solid var(--border-cool);
+    position: relative;
+    overflow: hidden;
+    /* Subtle background abstract pattern for cool effect */
+    background-image: radial-gradient(circle at top right, rgba(0, 188, 212, 0.15) 0%, transparent 50%),
+                      radial-gradient(circle at bottom left, rgba(103, 58, 183, 0.15) 0%, transparent 50%);
+    background-size: 80% 80%; /* Larger to feel more abstract */
+    background-repeat: no-repeat;
+    background-position: top right, bottom left;
+}
+
+.homepage-content {
+    position: relative;
+    z-index: 1;
+}
+
+.homepage-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4.8em; /* Much larger, impactful heading */
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    font-weight: 900; /* Super bold */
+    line-height: 1.05;
+    letter-spacing: -1.5px; /* Tighter for modern look */
+    text-shadow: 0 0 15px var(--shadow-glow); /* Glowing text effect */
+}
+
+.homepage-content .tagline {
+    font-size: 1.6em; /* Larger, more prominent tagline */
+    color: var(--medium-text);
+    margin-bottom: 60px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300; /* Lighter weight for contrast */
+}
+
+.login-card {
+    background-color: var(--card-light); /* Distinct, slightly lighter card */
+    border-radius: 10px;
+    padding: 45px; /* More padding */
+    box-shadow: 0 10px 30px var(--shadow-deep); /* Deeper shadow */
+    width: 100%;
+    max-width: 500px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Finer border */
+    backdrop-filter: blur(5px); /* Subtle glassmorphic effect */
+}
+
+.login-card h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em; /* Larger title */
+    color: var(--light-text);
+    margin-bottom: 35px;
+    font-weight: 700;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 20px; /* Larger, more clickable button */
+    font-size: 1.3em;
+    margin-top: 30px;
+    background: var(--gradient-button-primary); /* Gradient background */
+    box-shadow: 0 5px 15px var(--shadow-glow); /* Button glow */
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase; /* More impactful */
+    letter-spacing: 1px;
+}
+
+.login-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-glow);
+    background: linear-gradient(45deg, var(--primary-blue), var(--accent-cyan)); /* Maintain gradient on hover */
+}
+
+.error-message {
+    color: #FF6347; /* Brighter, more aggressive red-orange */
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 1.1em;
+    padding: 15px;
+    background-color: rgba(255, 99, 71, 0.15); /* Slightly more visible background */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 99, 71, 0.3);
+}
+
+/* --- Main Portal Styles --- */
+.container {
+    background-color: var(--card-dark);
+    border-radius: 12px; /* Consistent sharper corners */
+    box-shadow: 0 15px 45px var(--shadow-deep);
+    width: 100%;
+    max-width: 1300px; /* Even wider portal container */
+    padding: 50px;
+    margin-top: 30px;
+    border: 1px solid var(--border-cool);
+    position: relative;
+    overflow: hidden;
+}
+/* Abstract background element for the main portal */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(to bottom right, rgba(0, 123, 255, 0.05), transparent 40%, rgba(103, 58, 183, 0.05));
+    transform: rotate(10deg);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.portal-header, .main-content {
+    position: relative; /* Ensure content is above pseudo-element */
+    z-index: 1;
+}
+
+
+/* Header */
+.portal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle, lighter border */
+    padding-bottom: 30px;
+}
+
+.portal-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em; /* Larger, bolder header */
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 0 0 10px var(--shadow-glow);
+}
+
+.portal-header h1 .fas {
+    margin-right: 15px;
+    color: var(--accent-cyan); /* Cool accent color for icon */
+    font-size: 0.8em;
+}
+
+.header-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Buttons */
+.btn {
+    padding: 16px 32px; /* Larger, more impactful buttons */
+    border: none;
+    border-radius: 8px; /* Slightly sharper */
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1.15em;
+    font-weight: 700;
+    transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Stronger initial shadow */
+    letter-spacing: 0.5px;
+    text-transform: uppercase; /* Added for impact */
+}
+
+.btn-primary {
+    background: var(--gradient-button-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, var(--accent-cyan), var(--primary-blue)); /* Reverse gradient on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-glow);
+}
+
+.btn-secondary {
+    background-color: var(--card-light);
+    color: var(--light-text);
+    border: 1px solid var(--border-cool);
+}
+
+.btn-secondary:hover {
+    background-color: var(--highlight-purple); /* Stronger hover effect */
+    color: #fff;
+    border-color: var(--highlight-purple);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(103, 58, 183, 0.4);
+}
+
+.btn-danger {
+    background: var(--gradient-button-danger);
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #FF7043, #FF4500); /* Reverse gradient on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+}
+
+.btn .fas {
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+/* Main Content Sections */
+.main-content {
+    margin-top: 30px;
+}
+
+.today-tomorrow-section {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.today-card, .tomorrow-card {
+    background: var(--gradient-card-highlight); /* Vibrant, cool gradient */
+    color: #fff;
+    padding: 40px 45px; /* More generous padding */
+    border-radius: 15px; /* Modern rounding */
+    box-shadow: 0 15px 40px rgba(0, 123, 255, 0.3); /* Strong blue glow */
+    flex: 1;
+    min-width: 380px; /* Larger cards */
+    max-width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    perspective: 1000px; /* For potential 3D effects */
+}
+
+.today-card:hover, .tomorrow-card:hover {
+    transform: translateY(-8px) scale(1.01); /* More pronounced lift and scale */
+    box-shadow: 0 20px 50px rgba(0, 123, 255, 0.4);
+}
+
+.today-card.no-birthday, .tomorrow-card.no-birthday {
+    background: var(--card-light); /* Muted for no birthday */
+    color: var(--medium-text);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.today-card::before, .tomorrow-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle, light overlay */
+    border-radius: 50%;
+    transform: rotate(45deg);
+    opacity: 0.9;
+    filter: blur(8px); /* Stronger blur for ethereal effect */
+    z-index: 0;
+}
+
+.today-card h3, .tomorrow-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2.8em; /* Larger, bolder headings */
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2); /* Soft white glow */
+    position: relative;
+    z-index: 1;
+}
+
+.today-card p, .tomorrow-card p {
+    font-size: 1.4em; /* Larger, more readable text */
+    margin-top: 10px;
+    font-weight: 400;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+}
+
+.upcoming-birthdays-section h2 {
+    font-family: var(--font-heading);
+    font-size: 3.2em;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.upcoming-birthdays-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px; /* Wider underline */
+    height: 6px; /* Thicker underline */
+    background-color: var(--accent-cyan);
+    border-radius: 4px;
+}
+
+.birthday-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Larger cards in grid */
+    gap: 40px;
+    padding: 30px 0;
+}
+
+.no-birthdays-message {
+    text-align: center;
+    grid-column: 1 / -1;
+    font-style: italic;
+    color: var(--medium-text);
+    padding: 50px;
+    background-color: var(--card-light);
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+    font-size: 1.2em;
+    line-height: 1.8;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Birthday Card */
+.birthday-card {
+    background-color: var(--card-light);
+    border-radius: 15px; /* Slightly sharper */
+    box-shadow: 0 10px 30px var(--shadow-deep);
+    overflow: hidden;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    border: 1px solid var(--border-cool);
+    backdrop-filter: blur(2px); /* Subtle glass effect */
+}
+
+.birthday-card:hover {
+    transform: translateY(-12px); /* More pronounced lift */
+    box-shadow: 0 20px 50px rgba(0, 123, 255, 0.3); /* Blue glow on hover */
+    border-color: var(--accent-cyan); /* Highlight border on hover */
+}
+
+.profile-pic {
+    width: 130px; /* Larger profile pictures */
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--primary-blue); /* Stronger accent border */
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.2); /* Subtle blue glow for pic */
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.birthday-card:hover .profile-pic {
+    border-color: var(--accent-cyan); /* Change border color on card hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+
+.profile-pic.default-avatar {
+    background-color: var(--highlight-purple); /* Vibrant purple for default */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.8em; /* Larger initials */
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.birthday-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2em; /* Larger name */
+    margin-bottom: 12px;
+    color: var(--light-text);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.birthday-card p {
+    font-size: 1.2em;
+    color: var(--medium-text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.birthday-card .days-left {
+    font-family: var(--font-heading);
+    font-size: 1.5em; /* Larger countdown */
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-top: 20px;
+    padding: 10px 20px; /* Larger padding */
+    background-color: rgba(0, 188, 212, 0.1); /* Subtle background glow */
+    border-radius: 8px;
+    display: inline-block;
+    letter-spacing: 1px;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+}
+
+.birthday-card .days-left.today {
+    color: #ffffff;
+    background-color: var(--primary-blue);
+    box-shadow: 0 3px 10px var(--shadow-glow);
+    border-color: var(--primary-blue);
+}
+
+.birthday-card .actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.birthday-card .actions button {
+    background-color: var(--card-dark); /* Darker background for action buttons */
+    border: 1px solid var(--border-cool);
+    color: var(--medium-text);
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.birthday-card .actions button:hover {
+    background-color: var(--highlight-purple); /* Vibrant hover */
+    color: #fff;
+    border-color: var(--highlight-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(103, 58, 183, 0.4);
+}
+
+.birthday-card .actions button .fas {
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85); /* Much darker, intense overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* Stronger blur effect */
+}
+
+.modal-content {
+    background-color: var(--card-light); /* Lighter dark card background */
+    margin: auto;
+    padding: 50px;
+    border-radius: 18px;
+    box-shadow: 0 25px 80px rgba(0, 123, 255, 0.3); /* Intense blue glow for modal */
+    width: 90%;
+    max-width: 650px; /* Wider modal */
+    position: relative;
+    animation: fadeInScale 0.5s ease-out; /* Slower, more dramatic animation */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.modal-content.small-modal {
+    max-width: 480px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.close-button {
+    color: var(--medium-text);
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 38px; /* Larger, more striking close button */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--accent-cyan); /* Cool accent on hover */
+    transform: rotate(270deg); /* More dynamic spin */
+}
+
+.modal h2, .modal h3 {
+    font-family: var(--font-heading);
+    text-align: center;
+    color: var(--light-text);
+    margin-bottom: 35px;
+    font-size: 2.8em; /* Larger modal title */
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(255,255,255,0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: var(--medium-text);
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="url"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle light border */
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-family: var(--font-body);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: var(--card-dark); /* Dark input fields */
+    color: var(--light-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.3); /* Stronger, cool focus glow */
+    outline: none;
+    background-color: var(--card-light); /* Slight change on focus */
+}
+
+.modal button[type="submit"] {
+    width: 100%;
+    margin-top: 35px;
+    padding: 20px;
+    font-size: 1.25em;
+    background: var(--gradient-button-primary);
+    box-shadow: 0 5px 15px var(--shadow-glow);
+    text-transform: uppercase;
+}
+.modal button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-glow);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translateY(-80px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .homepage-content h1 {
+        font-size: 4em;
+    }
+    .portal-header h1 {
+        font-size: 3em;
+    }
+    .today-card, .tomorrow-card {
+        min-width: unset;
+        max-width: 48%;
+        flex-basis: 48%;
+    }
+    .upcoming-birthdays-section h2 {
+        font-size: 2.8em;
+    }
+    .birthday-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+    }
+    .homepage-container {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+    .container {
+        padding: 30px;
+        margin-top: 20px;
+    }
+    .homepage-container {
+        padding: 40px;
+        min-height: unset;
+        max-width: 95%;
+    }
+    .homepage-content h1 {
+        font-size: 3.2em;
+        letter-spacing: -1px;
+    }
+    .homepage-content .tagline {
+        font-size: 1.3em;
+        margin-bottom: 40px;
+    }
+    .login-card {
+        padding: 35px;
+    }
+    .login-card h2 {
+        font-size: 2.2em;
+    }
+    .portal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 35px;
+        padding-bottom: 20px;
+    }
+    .portal-header h1 {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+    }
+    .header-actions {
+        width: 100%;
+        justify-content: space-evenly;
+        margin-top: 15px;
+        gap: 10px;
+    }
+    .header-actions .btn {
+        flex-grow: 1;
+        min-width: unset;
+        padding: 14px 18px;
+        font-size: 1em;
+    }
+    .btn {
+        padding: 14px 25px;
+        font-size: 1em;
+    }
+    .today-tomorrow-section {
+        flex-direction: column;
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+    .today-card, .tomorrow-card {
+        min-width: unset;
+        width: 100%;
+        padding: 30px;
+    }
+    .today-card h3, .tomorrow-card h3 {
+        font-size: 2.2em;
+    }
+    .today-card p, .tomorrow-card p {
+        font-size: 1.15em;
+    }
+    .upcoming-birthdays-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+    .birthday-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .birthday-card {
+        padding: 30px;
+    }
+    .profile-pic {
+        width: 110px;
+        height: 110px;
+    }
+    .birthday-card h3 {
+        font-size: 2em;
+    }
+    .birthday-card .days-left {
+        font-size: 1.3em;
+    }
+    .birthday-card .actions button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    .modal-content {
+        padding: 40px;
+    }
+    .modal h2 {
+        font-size: 2.2em;
+    }
+    .modal button[type="submit"] {
+        padding: 18px;
+        font-size: 1.15em;
+    }
+    .modal-actions {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+    .container, .homepage-container {
+        padding: 25px 15px;
+    }
+    .homepage-content h1 {
+        font-size: 2.8em;
+        letter-spacing: -0.8px;
+    }
+    .homepage-content .tagline {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+    .login-card {
+        padding: 30px 20px;
+    }
+    .login-card h2 {
+        font-size: 1.8em;
+    }
+    .portal-header h1 {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+    }
+    .header-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        padding: 12px 18px;
+        font-size: 0.9em;
+    }
+    .today-card, .tomorrow-card {
+        padding: 25px;
+    }
+    .today-card h3, .tomorrow-card h3 {
+        font-size: 2em;
+    }
+    .upcoming-birthdays-section h2 {
+        font-size: 2.2em;
+    }
+    .birthday-card {
+        padding: 25px;
+    }
+    .profile-pic {
+        width: 90px;
+        height: 90px;
+    }
+    .birthday-card h3 {
+        font-size: 1.8em;
+    }
+    .birthday-card .actions button {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+    .modal-content {
+        padding: 35px 25px;
+    }
+    .modal h2 {
+        font-size: 2em;
+    }
+    .form-group label {
+        font-size: 1em;
+    }
+    .form-group input, .form-group textarea {
+        padding: 12px;
+        font-size: 1em;
+    }
+    .close-button {
+        font-size: 32px;
+        top: 20px;
+        right: 25px;
+    }
+}
